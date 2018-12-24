@@ -59,19 +59,19 @@
         $.ajax({
             url: url,
             type: 'get',
-            dataType: 'json',
+            dataType: 'text',
             data:{
                 "id": id,
                 "title": title,
                 "context": context,
                 "date": date
             },
-			success:function (data) {
-                alert(data);
+            success:function (data) {
+                alert(123);
                 window.location.href = "message/tolist";
 			},
 			error:function(data){
-                alert("error");
+                alert("456");
 			}
         })
     }

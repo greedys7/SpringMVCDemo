@@ -15,12 +15,17 @@
                (null ,#{phone} , #{password});
     </insert>
 
-    <select id="findByPhone"  resultMap="userResultMap" parameterType="String">
+    <select id="findByPhone" resultType="User" parameterType="User">
         SELECT
                phone,password
         FROM user
         WHERE
               phone = #{phone};
 
+    </select>
+    <select id="findAll" resultMap="userResultMap">
+        SELECT
+               phone,password
+        FROM user;
     </select>
 </mapper>

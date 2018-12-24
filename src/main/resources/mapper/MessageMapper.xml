@@ -10,12 +10,10 @@
         <result property="context" column="context"/>
         <result property="date" column="date"/>
     </resultMap>
-    <select id="findAll" resultMap="messageResultMap" parameterType="int">
+    <select id="findAll" resultMap="messageResultMap">
         SELECT
             id,title,context,date
         FROM message
-        WHERE
-            id = #{id};
     </select>
 
     <update id="delete" parameterType="int">
@@ -33,7 +31,7 @@
             id = #{id};
     </select>
 
-    <update id="update" parameterType="message">
+    <update id="update" parameterType="message" >
         UPDATE
              message
         SET

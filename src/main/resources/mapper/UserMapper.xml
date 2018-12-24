@@ -15,9 +15,9 @@
                (null ,#{phone} , #{password});
     </insert>
 
-    <select id="findByPhone" resultType="java.lang.String" parameterType="String">
+    <select id="findByPhone" resultType="User" parameterType="User">
         SELECT
-               password
+               phone,password
         FROM user
         WHERE
               phone = #{phone};

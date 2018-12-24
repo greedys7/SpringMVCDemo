@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.MessageDAO" >
+    <resultMap type="Message" id="messageResultMap" >
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="context" column="context"/>
+        <result property="date" column="date"/>
+    </resultMap>
+    <select id="findAll" resultMap="messageResultMap" parameterType="int">
+        SELECT
+            id,title,context,date
+        FROM message
+        WHERE
+            id = #{id};
+    </select>
+
+    <update id="delete" parameterType="int">
+        DELETE FROM
+                    message
+        WHERE
+              id=#{id};
+    </update>
+
+    <select id="query" resultMap="messageResultMap" parameterType="int">
+        SELECT
+            id,title,context,date
+        FROM message
+        WHERE
+            id = #{id};
+    </select>
+
+    <update id="update" parameterType="message">
+        UPDATE
+             message
+        SET
+              title=#{title},context=#{context},date=#{date}
+        WHERE
+              id=#{id};
+    </update>
+
+
+</mapper>
